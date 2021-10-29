@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' as rootBundle;
 
 import 'UserModel.dart';
+
 void main() {
   runApp(MyApp());
 }
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -20,10 +22,12 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
+
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
@@ -50,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Container(
                           width: 50,
                           height: 50,
-                         child: CircleAvatar(
+                          child: CircleAvatar(
                             backgroundImage:
                                 NetworkImage(items[index].imageURL.toString()),
                           ),
@@ -62,131 +66,129 @@ class _MyHomePageState extends State<MyHomePage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                               Align(
-                                    alignment: Alignment.topRight,
-
-                                child: Text(
-                                  items[index].last_seen_time.toString(),
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      ),
-                                ),
-
-                              ),
+                              
                               Padding(
                                 padding: EdgeInsets.only(left: 8, right: 8),
                                 child: Text(
                                   items[index].first_name.toString(),
                                   style: TextStyle(
-                                      fontSize: 16,
-                                      ),
+                                    fontSize: 16,
+                                  ),
                                 ),
-
                               ),
                               SizedBox(
-                          height: 8.0,
-                        ),
-                              
-                             Padding(
+                                height: 8.0,
+                              ),
+
+                              Padding(
                                 padding: EdgeInsets.only(left: 8, right: 8),
                                 child: Text(
                                   items[index].last_name.toString(),
                                   style: TextStyle(
-                                      fontSize: 16,
-                                      ),
+                                    fontSize: 16,
+                                  ),
                                 ),
-
                               ),
-                                  SizedBox(
-                          height: 8.0,
-                        ),
-                                Padding(
+                              SizedBox(
+                                height: 8.0,
+                              ),
+                              Padding(
                                 padding: EdgeInsets.only(left: 8, right: 8),
                                 child: Text(
                                   items[index].status.toString(),
                                   style: TextStyle(
-                                      fontSize: 16,color: Colors.grey
-                                      ),
+                                      fontSize: 16, color: Colors.grey),
                                 ),
-
                               ),
-                            SizedBox(
-                          height: 8.0,
-                        ),
-                        
-          //                      Container(
-          //   width: 30,
-          //   height: 30,
-          //   decoration: BoxDecoration(
-          //     border: Border.all(width: 2),
-          //     shape: BoxShape.circle,
-          //     color: Colors.blue,
-              
-          //   ),
-          //   child:Column(
-          //     crossAxisAlignment: CrossAxisAlignment.center,
-          //     mainAxisAlignment: MainAxisAlignment.center,
-          //     children: <Widget>[
-          //      Text(
-          //                         items[index].messages.toString(),
-          //                         style: TextStyle(
-          //                             fontWeight: FontWeight.bold),
-          //                       ),
-          //     ],
-          //   ),
-          // ),
-                            
-                            
+                              SizedBox(
+                                height: 8.0,
+                              ),
                                
+
+                              //                      Container(
+                              //   width: 30,
+                              //   height: 30,
+                              //   decoration: BoxDecoration(
+                              //     border: Border.all(width: 2),
+                              //     shape: BoxShape.circle,
+                              //     color: Colors.blue,
+
+                              //   ),
+                              //   child:Column(
+                              //     crossAxisAlignment: CrossAxisAlignment.center,
+                              //     mainAxisAlignment: MainAxisAlignment.center,
+                              //     children: <Widget>[
+                              //      Text(
+                              //                         items[index].messages.toString(),
+                              //                         style: TextStyle(
+                              //                             fontWeight: FontWeight.bold),
+                              //                       ),
+                              //     ],
+                              //   ),
+                              // ),
+                            ],
+                          ),
+                          
+                        )),
+                        Container(
+                          child: Column(
+                            children: [
+                              Align(
+                                alignment: Alignment.topRight,
+                                child: Text(
+                                  items[index].last_seen_time.toString(),
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
+                       Container(
+                              
+                          margin: EdgeInsets.only(top: 10,right: 30,left: 25 ),
+                          width: 30,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            border: Border.all(width: 2),
+                            shape: BoxShape.circle,
+                            // You can use like this way or like the below line
+                            //borderRadius: new BorderRadius.circular(30.0),
+
+                            color: Colors.blue,
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Center(
+                                child: Text(
+                                  items[index].messages.toString(),
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                             ],
                           ),
                         )
-                        ),
-                      
-                               Container(
-  
-
-            width: 30,
-            height: 30, 
-            decoration: BoxDecoration(
-              border: Border.all(width: 2),
-              shape: BoxShape.circle,
-              // You can use like this way or like the below line
-              //borderRadius: new BorderRadius.circular(30.0),
-              
-              color: Colors.blue,
-              
-            ),
-            child:Column(
-
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-               Text(
-                                  items[index].messages.toString(),
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold),
-                                ),
-              ],
-            ),
-
-          ),],
+                        
+                      ],
                     ),
                   ),
                 );
-              }
-              );
+              });
         } else {
           return Center(
             child: CircularProgressIndicator(),
           );
         }
       },
-    )
-    );
+    ));
   }
+
   Future<List<UserModel>> ReadJsonData() async {
-    final jsondata = await rootBundle.rootBundle.loadString('jsonfile/productlist.json');
+    final jsondata =
+        await rootBundle.rootBundle.loadString('jsonfile/productlist.json');
     final list = json.decode(jsondata) as List<dynamic>;
     return list.map((e) => UserModel.fromJson(e)).toList();
   }
