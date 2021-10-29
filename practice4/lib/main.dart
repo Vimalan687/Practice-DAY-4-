@@ -28,6 +28,7 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
+//ccccc
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
@@ -66,7 +67,6 @@ class _MyHomePageState extends State<MyHomePage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              
                               Padding(
                                 padding: EdgeInsets.only(left: 8, right: 8),
                                 child: Text(
@@ -103,7 +103,6 @@ class _MyHomePageState extends State<MyHomePage> {
                               SizedBox(
                                 height: 8.0,
                               ),
-                               
 
                               //                      Container(
                               //   width: 30,
@@ -128,7 +127,6 @@ class _MyHomePageState extends State<MyHomePage> {
                               // ),
                             ],
                           ),
-                          
                         )),
                         Container(
                           child: Column(
@@ -142,36 +140,34 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                 ),
                               ),
-                       Container(
-                              
-                          margin: EdgeInsets.only(top: 10,right: 30,left: 25 ),
-                          width: 30,
-                          height: 30,
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 2),
-                            shape: BoxShape.circle,
-                            // You can use like this way or like the below line
-                            //borderRadius: new BorderRadius.circular(30.0),
-
-                            color: Colors.blue,
-                          ),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Center(
-                                child: Text(
-                                  items[index].messages.toString(),
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
+                              Container(
+                                child: (items[index].messages.toString() ==
+                                        'null')
+                                    ? Container(
+                                        color: Colors.white,
+                                      )
+                                    : Container(
+                                        margin: EdgeInsets.only(
+                                            top: 10, right: 30, left: 25),
+                                        width: 30,
+                                        height: 30,
+                                        decoration: BoxDecoration(
+                                          border: Border.all(width: 2),
+                                          shape: BoxShape.circle,
+                                          color: Colors.blue,
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            items[index].messages.toString(),
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                      ),
                               ),
                             ],
                           ),
-                        ),
-                            ],
-                          ),
                         )
-                        
                       ],
                     ),
                   ),
